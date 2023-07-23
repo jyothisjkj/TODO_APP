@@ -1,8 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate,login,logout
 from django.shortcuts import render,redirect
+from django.contrib.auth.decorators import login_required
+
+
 from .models import todo_app
+
 
 
 
@@ -23,9 +27,10 @@ def index(request):
 
     return render(request,"todo_app/index.html")
 
-
+@login_required(login_url='index')
 def home(request):
     if request.method == "POST":
+        
 
         title = request.POST.get("head")
         info = request.POST.get("message")
@@ -37,11 +42,13 @@ def home(request):
 
         t.save()
 
+    datas = todo_app.objects.all()
+
         
 
 
 
 
 
-    return render(request,"todo_app/home.html")
+    return render(request,"todo_app/home.html",{"datas":datas})
 
