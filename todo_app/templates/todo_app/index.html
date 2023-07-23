@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'todo_app/index.css' %}">
+</head>
+<body>
+    {% comment %} <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>  {% endcomment %}
+    <form  class= "form_class" method="post">
+        <h3>Student Login</h3>
+        {% csrf_token %}
+        <label for="username">Username</label>
+        <input type="text" placeholder="Enter Username" id="username" name="username">
+    
+        <label for="password">Password</label>
+        <input type="password" placeholder="Password" id="password" name="pass">
+    
+        <button type="submit">Log In</button>
+        <!-- <input type="button" value=""> -->
+        <!-- <div class="social">
+          <div class="go"><i class="fab fa-google"></i>  Google</div>
+          <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
+        </div> -->
+        <a href="" >Forgot password</a>
+        
+    </form>
+    
+</body>
+</html>
